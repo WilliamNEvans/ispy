@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Great+Vibes&family=Irish+Grover&display=swap" rel="stylesheet">
+    <style>
+          body {
+           
+           background: url(img/map.png) no-repeat center center/cover;
+           background-image: url(img/map.png); width: 100%;
+           background-repeat: no-repeat;
+           background-size:contain;
+           background-position-x: center;
+           background-color:rgb(80, 100, 210);
+           font-size: 24px;
+           font-family: "Irish Grover", system-ui;
+            font-weight: 400;
+            font-style: normal;
+       }
+       /* Clickable Area */
+       .clickable-area {
+            position: absolute;
+            width: 50px; /* Adjust based on the clickable area */
+            height: 50px; /* Adjust based on the clickable area */
+            cursor: pointer;
+            background: rgba(255, 0, 0, 0.3); /* Temporary highlight (remove later) */
+        }
+        .area1 { top: 6%; left: 35%; }
+        .area2 { top: 58%; left: 60%; }
+        .area3 { top: 69%; left: 51%; }
+        .area4 { top: 14%; left: 45%; }
+        .area5 { top: 80%; left: 48%; }
+        .area6 { top: 13%; left: 64%; }
+        .area7 { top: 20%; left: 14%; }
+
+
+
+        /* Pop-up Image */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(235, 245, 44);
+            padding: 10px;
+            border: 2px solid black;
+            z-index: 1000;
+        }
+        /* Score Display */
+        .score {
+            position: absolute;
+            top: 7%;
+            left: 80%;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        /* Overlay (Dim Background when pop-up is shown) */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+   <!-- Score Display -->
+   <div class="score"> <span id="score">0</span></div>
+
+    <!-- Clickable Areas -->
+    <div class="clickable-area area1" onclick="addPoint(); showPopup('popup1')"></div>
+    <div class="clickable-area area2" onclick="addPoint(); showPopup('popup2')"></div>
+    <div class="clickable-area area3" onclick="addPoint(); showPopup('popup3')"></div>
+    <div class="clickable-area area4" onclick="addPoint(); showPopup('popup4')"></div>
+    <div class="clickable-area area5" onclick="addPoint(); showPopup('popup5')"></div>
+    <div class="clickable-area area6" onclick="addPoint(); showPopup('popup6')"></div>
+    <div class="clickable-area area7" onclick="addPoint(); showPopup('popup7')"></div>
+
+    <!-- Pop-up Elements -->
+    <div class="popup" id="popup1">
+        <img src="img/computer.png" alt="Popup 1" width="900" onclick="hidePopup('popup1')">
+    </div>
+    <div class="popup" id="popup2">
+        <img src="img/fire.png" alt="Popup 2" width="900" onclick="hidePopup('popup2')">
+    </div>
+    <div class="popup" id="popup3">
+        <img src="img/help.png" alt="Popup 3" width="900" onclick="hidePopup('popup3')">
+    </div>
+    <div class="popup" id="popup4">
+        <img src="img/word.png" alt="Popup 3" width="900" onclick="hidePopup('popup4')">
+    </div>
+    <div class="popup" id="popup5">
+        <img src="img/windows.png" alt="Popup 3" width="900" onclick="hidePopup('popup5')">
+    </div>
+    <div class="popup" id="popup6">
+        <img src="img/interex.png" alt="Popup 3" width="900" onclick="hidePopup('popup6')">
+    </div>
+    <div class="popup" id="popup7">
+        <img src="img/recycle.png" alt="Popup 3" width="900" onclick="hidePopup('popup7')">
+    </div>
+
+    <script>
+        let score = 0;
+
+        function addPoint() {
+        score++;
+         document.getElementById("score").innerText = score;
+        }
+        function showPopup(id) {
+            document.getElementById(id).style.display = "block";
+        }
+
+        function hidePopup(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    </script>
+</body>
+</html>
