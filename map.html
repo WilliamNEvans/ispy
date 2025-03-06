@@ -21,14 +21,13 @@
             font-weight: 400;
             font-style: normal;
        }
-       /* Clickable Area */
-       .clickable-area {
+       
+       .click-area {
             position: absolute;
-            width: 50px; /* Adjust based on the clickable area */
-            height: 50px; /* Adjust based on the clickable area */
+            width: 60px; 
+            height: 60px; 
             cursor: pointer;
-            background: rgba(255, 0, 0, 0.3); /* Temporary highlight (remove later) */
-        }
+       }
         .area1 { top: 6%; left: 35%; }
         .area2 { top: 58%; left: 60%; }
         .area3 { top: 69%; left: 51%; }
@@ -39,7 +38,7 @@
 
 
 
-        /* Pop-up Image */
+        
         .popup {
             display: none;
             position: fixed;
@@ -51,7 +50,7 @@
             border: 2px solid black;
             z-index: 1000;
         }
-        /* Score Display */
+        
         .score {
             position: absolute;
             top: 7%;
@@ -59,7 +58,7 @@
             padding: 10px 20px;
             border-radius: 10px;
         }
-        /* Overlay (Dim Background when pop-up is shown) */
+        
         .overlay {
             display: none;
             position: fixed;
@@ -73,55 +72,60 @@
     </style>
 </head>
 <body>
-   <!-- Score Display -->
+   
    <div class="score"> <span id="score">0</span></div>
 
-    <!-- Clickable Areas -->
-    <div class="clickable-area area1" onclick="addPoint(); showPopup('popup1')"></div>
-    <div class="clickable-area area2" onclick="addPoint(); showPopup('popup2')"></div>
-    <div class="clickable-area area3" onclick="addPoint(); showPopup('popup3')"></div>
-    <div class="clickable-area area4" onclick="addPoint(); showPopup('popup4')"></div>
-    <div class="clickable-area area5" onclick="addPoint(); showPopup('popup5')"></div>
-    <div class="clickable-area area6" onclick="addPoint(); showPopup('popup6')"></div>
-    <div class="clickable-area area7" onclick="addPoint(); showPopup('popup7')"></div>
+    
+    <div class="click-area area1" onclick="addpoint(); showpopup('popup1')"></div>
+    <div class="click-area area2" onclick="addpoint(); showpopup('popup2')"></div>
+    <div class="click-area area3" onclick="addpoint(); showpopup('popup3')"></div>
+    <div class="click-area area4" onclick="addpoint(); showpopup('popup4')"></div>
+    <div class="click-area area5" onclick="addpoint(); showpopup('popup5')"></div>
+    <div class="click-area area6" onclick="addpoint(); showpopup('popup6')"></div>
+    <div class="click-area area7" onclick="addpoint(); showpopup('popup7')"></div>
 
-    <!-- Pop-up Elements -->
+   
     <div class="popup" id="popup1">
-        <img src="img/computer.png" alt="Popup 1" width="900" onclick="hidePopup('popup1')">
+        <img src="img/computer.png" alt="Popup 1" width="900" onclick="hidepopup('popup1')">
     </div>
     <div class="popup" id="popup2">
-        <img src="img/fire.png" alt="Popup 2" width="900" onclick="hidePopup('popup2')">
+        <img src="img/fire.png" alt="Popup 2" width="900" onclick="hidepopup('popup2')">
     </div>
     <div class="popup" id="popup3">
-        <img src="img/help.png" alt="Popup 3" width="900" onclick="hidePopup('popup3')">
+        <img src="img/help.png" alt="Popup 3" width="900" onclick="hidepopup('popup3')">
     </div>
     <div class="popup" id="popup4">
-        <img src="img/word.png" alt="Popup 3" width="900" onclick="hidePopup('popup4')">
+        <img src="img/word.png" alt="Popup 3" width="900" onclick="hidepopup('popup4')">
     </div>
     <div class="popup" id="popup5">
-        <img src="img/windows.png" alt="Popup 3" width="900" onclick="hidePopup('popup5')">
+        <img src="img/windows.png" alt="Popup 3" width="900" onclick="hidepopup('popup5')">
     </div>
     <div class="popup" id="popup6">
-        <img src="img/interex.png" alt="Popup 3" width="900" onclick="hidePopup('popup6')">
+        <img src="img/interex.png" alt="Popup 3" width="900" onclick="hidepopup('popup6')">
     </div>
     <div class="popup" id="popup7">
-        <img src="img/recycle.png" alt="Popup 3" width="900" onclick="hidePopup('popup7')">
+        <img src="img/recycle.png" alt="Popup 3" width="900" onclick="hidepopup('popup7')">
     </div>
 
     <script>
         let score = 0;
 
-        function addPoint() {
+        function addpoint() {
         score++;
          document.getElementById("score").innerText = score;
+         if (score >= 8) {
+                window.location.href = "congrats.html"; 
+            }
         }
-        function showPopup(id) {
+        function showpopup(id) {
             document.getElementById(id).style.display = "block";
         }
 
-        function hidePopup(id) {
+        function hidepopup(id) {
             document.getElementById(id).style.display = "none";
         }
     </script>
+   
+    
 </body>
 </html>
